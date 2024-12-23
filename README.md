@@ -4,7 +4,7 @@
 
 1. Clone respository
 2. Install MS sql server
-3. Exeute script located inside database folder
+3. Execute scripts located inside `database` folder
 4. Edit `server/.env.development` file with the correct secrets
 5. Install NodeJs and pnpm
 6. Run this commands
