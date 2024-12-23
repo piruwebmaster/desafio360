@@ -210,16 +210,14 @@ GO
 
 INSERT INTO sales.ROLES (name,state_id,created_by,created_at) 
 VALUES
-	 (N'OPERATOR',N'ACTIVO',1,'2024-12-22 04:32:10.987');
-VALUES
+	 (N'OPERATOR',N'ACTIVO',1,'2024-12-22 04:32:10.987'),
 	 (N'CLIENT',N'ACTIVO',1,'2024-12-22 04:32:10.987');
 
 GO
 
 INSERT INTO sales.USERS 
 (role_id,state_id,email,password,phone_number,date_of_birth,created_by,created_at) 
-VALUES
-(3,N'ACTIVO',N'test@test.com',N'fake',N'11111','1980-10-10',4,'2024-12-22 04:35:09.063'),
+VALUES (1,N'ACTIVO',N'test@test.com',N'$2y$12$6/qjQHZliu.8zeurMjd4G./rDvRYPBqpJ2EXrAsrsfwVCoiwdmg4q',N'11111','1980-10-10',4,'2024-12-22 04:35:09.063');
 GO
 
 
@@ -239,5 +237,3 @@ INSERT INTO sales.ORDERS_STATES (id,state_id,created_by,created_at) VALUES
 	 (N'REFUNDED',N'ACTIVO',1,'2024-12-23 00:17:58.597'),
 	 (N'RETURNED',N'ACTIVO',1,'2024-12-23 00:17:58.6'),
 	 (N'SHIPPED',N'ACTIVO',1,'2024-12-23 00:17:58.573');
-
-

@@ -38,9 +38,6 @@ docker-compose.override.yml
 #entregables/
 
 
-# TypeScript declaration files (optional if you don't want to version the generated types)
-*.d.ts
-
 # Miscellaneous
 *.tgz
 *.zip

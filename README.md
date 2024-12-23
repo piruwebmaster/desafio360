@@ -1,5 +1,25 @@
 # Server Project
 
+## Launch
+
+1. Clone respository
+2. Install MS sql server
+3. Exeute script located inside database folder
+4. Edit `server/.env.development` file with the correct secrets
+5. Install NodeJs and pnpm
+6. Run this commands
+
+```bash
+    cd server
+    pnpm install
+    pnpm dev
+```
+7. Open postman
+8. Load collection located at `postman` folder
+9. Execute post to `http://localhost:3001/api/v1/login` endpoint to get a bearer token 
+
+
+
 ## Overview
 
 This repository contains the server-side code for a system built using Node.js, TypeScript, and Sequelize. The project handles business logic, database interactions, and provides RESTful APIs for the clients. It includes various endpoints for managing resources such as orders, products, clients, and users.

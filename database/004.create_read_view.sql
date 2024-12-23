@@ -23,3 +23,8 @@ AS
 SELECT id, order_id, quantity, tax_rate, sell_price, state_id, product_id
 FROM desafio360.sales.ORDERS_DETAILS;
 
+CREATE VIEW SALES.VW_LOGIN
+    AS SELECT id, email, password from sales.USERS u
+    where u.state_id = 'ACTIVO' ;
+GO
+
