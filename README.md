@@ -17,6 +17,13 @@
 7. Open postman
 8. Load collection located at `postman` folder
 9. Execute post to `http://localhost:3001/api/v1/login` endpoint to get a bearer token 
+10. Set token at the root of postman collection
+11. Roles than can be used
+
+| role_id | value |
+| --------| ------|
+| 1 | OPERATOR  |
+| 2 | CLIENT |
 
 
 

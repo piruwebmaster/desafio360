@@ -1265,7 +1265,8 @@ GO
 
 CREATE VIEW SALES.VW_USERS
 AS SELECT U.id, EMAIL, PHONE_NUMBER, DATE_OF_BIRTH, U.STATE_ID, ROLE_ID, R.name role_name from sales.USERS u
-join SALES.ROLES R on u.role_id = r.id;
+join SALES.ROLES R on u.role_id = r.id
+where u.state_id = 'ACTIVO';
 GO
 
 CREATE VIEW SALES.VW_CLIENTS
