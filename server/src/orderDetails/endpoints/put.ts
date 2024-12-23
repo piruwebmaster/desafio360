@@ -8,9 +8,8 @@ const router = express.Router();
 
 router.put('/:id', bodyValidatorMiddlware(updateDtoSchema), updateDeleteResponseMiddleware, async (req, res)=>{
     const id = +req.params.id
-    const body = {...req.body, delivery_date: req.body.delivery_date ?? null  }
     
-    const data = await update({...body, id})
+    const data = await update({...req.body, id})
     res.json(data)
 })
 

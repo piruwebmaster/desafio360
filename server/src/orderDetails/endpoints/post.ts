@@ -6,10 +6,8 @@ import { createSchema } from '../schemas';
 const router = express.Router();
 
 router.post('/', bodyValidatorMiddlware(createSchema), async (req, res)=>{
-    console.log(req.body)
-    const body = {...req.body, delivery_date: req.body.delivery_date ?? null  }
     
-    const data = await add(body)
+    const data = await add(req.body)
     res.json(data)
 })
 

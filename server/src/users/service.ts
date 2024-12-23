@@ -1,7 +1,7 @@
 import { disableEntityById, getEntityBydId, getEntities, insertEntity, updateEntity } from "./repository"
 import { CreateEntity, UpdateEntity } from "./types"
 import { Pagination } from "../utils/schemas/pagination"
-import { hash } from "@utils/hasher"
+import { hash } from "@utils/security/hasher"
 
 export const list = async ( query : Pagination) => {
     const r = await getEntities(query)
