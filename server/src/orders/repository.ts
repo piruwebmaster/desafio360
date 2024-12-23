@@ -28,15 +28,15 @@ export const disableEntityById = async (id: number) =>{
   
 }
 
-export const insertEntity = async (entity: CreateEntity) =>{
+export const insertEntity = async (entity: CreateEntity, userId: number) =>{
   const { insertProcedure } = db();
-  const id  = await insertProcedure({query: "exec SALES.insert_order :client_id, :estimated_delivery_date, :delivery_date, :order_state_id, 4", replacement:  {...entity, estimated_delivery_date: entity.estimated_delivery_date?.toJSON(), delivery_date:  entity.delivery_date?.toJSON() ?? null} });
+  const id  = await insertProcedure({query: "exec SALES.insert_order :client_id, :estimated_delivery_date, :delivery_date, :order_state_id, :userId", replacement:  {...entity, estimated_delivery_date: entity.estimated_delivery_date?.toJSON(), delivery_date:  entity.delivery_date?.toJSON() ?? null, userId} });
   return id
   
 }
 
-export const updateEntity = async (entity: UpdateEntity) =>{
+export const updateEntity = async (entity: UpdateEntity, userId: number) =>{
   const { procedure } = db();
-  return await procedure({query: "exec SALES.update_order :id, :estimated_delivery_date, :delivery_date, 4 ", replacement: {...entity, estimated_delivery_date: entity.estimated_delivery_date?.toJSON(), delivery_date:  entity.delivery_date?.toJSON() ?? null}   });
+  return await procedure({query: "exec SALES.update_order :id, :estimated_delivery_date, :delivery_date, :userId ", replacement: {...entity, estimated_delivery_date: entity.estimated_delivery_date?.toJSON(), delivery_date:  entity.delivery_date?.toJSON() ?? null, userId}   });
   
 }

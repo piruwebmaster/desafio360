@@ -11,8 +11,8 @@ export const findById = async (id: number) => {
     return await getEntityBydId(id)
 }
 
-export const add = async (enitity: CreateEntity) =>  {    
-    return insertEntity(enitity)
+export const add = async (enitity: CreateEntity, userId: number) =>  {    
+    return insertEntity(enitity, userId)
 }
 
 export const removeById = async (_id: number)  =>  {

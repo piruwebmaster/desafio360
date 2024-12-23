@@ -9,6 +9,7 @@ import details from './orderDetails/routes'
 import login from './login/routes'
 import dotenv from 'dotenv';
 import { validateToken } from '@middlewares/authMiddleware'
+import { updateDeleteResponseMiddleware } from '@middlewares/updateDeleteResponseMiddlware'
 
 const envFile = `.env.${process.env.NODE_ENV ?? 'development'}`;
 dotenv.config({
@@ -22,7 +23,7 @@ const PORT = process.env.PORT
 app.use('/api/v1', login)
 
 app.use(validateToken)
-
+app.use(updateDeleteResponseMiddleware)
 app.use('/api/v1', products)
 app.use('/api/v1', categories)
 app.use('/api/v1', users)

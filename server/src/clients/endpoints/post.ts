@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/', bodyValidatorMiddlware(createSchema), async (req, res)=>{
     console.log(req.body)
     
-    const data = await add({...req.body})
+    const data = await add({...req.body}, req.user?.id ?? 0)
     res.json(data)
 })
 

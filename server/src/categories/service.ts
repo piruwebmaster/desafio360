@@ -11,8 +11,8 @@ export const findById = async (id: number) => {
     return await getEntityBydId(id)
 }
 
-export const add = async (product: CreateCategory) =>  {
-    return insertEntity(product)
+export const add = async (product: CreateCategory,  userId: number) =>  {
+    return insertEntity(product, userId)
 }
 
 export const removeById = async (_id: number)  =>  {

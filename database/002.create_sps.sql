@@ -106,6 +106,9 @@ GO
 
 -- Stored Procedure to Insert a User where role_id is copied from the created_by user's role
 
+
+
+
 CREATE PROCEDURE SALES.insert_user
     @email VARCHAR(256),
     @phone_number VARCHAR(32),
@@ -126,6 +129,12 @@ BEGIN
     -- Get the role_id of the created_by user
     --DECLARE @role_id INT;
     --SELECT @role_id = role_id FROM SALES.USERS WHERE id = @created_by;
+
+    IF EXISTS (SELECT 1 FROM SALES.USERS WHERE EMAIL = @email and state_id = 'ACTIVO')
+    BEGIN
+        RAISERROR('Email is already in use', 16, 1)
+        RETURN;
+    END
 
     -- Insert new user with the role_id copied from the created_by user
     INSERT INTO SALES.USERS (role_id, state_id, email, password, phone_number, date_of_birth, created_by, created_at)

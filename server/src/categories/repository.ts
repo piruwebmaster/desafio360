@@ -28,9 +28,9 @@ export const disableEntityById = async (id: number) =>{
   
 }
 
-export const insertEntity = async (product: CreateCategory) =>{
+export const insertEntity = async (product: CreateCategory,  userId: number) =>{
   const { insertProcedure } = db();
-  const id  = await insertProcedure({query: "exec SALES.insert_category :name, 4", replacement:  product });
+  const id  = await insertProcedure({query: "exec SALES.insert_category :name, :userId", replacement:  {...product,  userId } });
   return id
   
 }
